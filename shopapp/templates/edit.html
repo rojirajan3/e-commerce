@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div >
+  <form class="forms-sample" method="post" action="{% url 'updatecate' dataid=data.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group" >
+      <label for="">Edit Category Name</label>
+      <input type="text" class="form-control" id="" placeholder="Name" name="name" value="{{data.name}}" >
+    </div>
+    <div>
+      <label for="">Description</label>
+      <textarea class="form-control" id="" rows="4" placeholder="Description" name="des" >{{data.description}}</textarea>
+    </div>
+    <div class="form-group">
+      <label>File upload</label><br><br>
+      <input type="file" name="img"><br><br>
+      <img src="{{data.profileimg.url}}"  width="200px" height="150px"><br><br>
+          <button class="file-upload-browse btn btn-primary" type="submit">Save</button>
+      </div>
+    </div>
+</form>
+      
+</div>
+
+
+</body>
+</html>
+{% endblock %}
+
+
